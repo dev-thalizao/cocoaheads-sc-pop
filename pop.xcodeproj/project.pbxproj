@@ -14,6 +14,9 @@
 		2B25BE581F68DC3A00C2E4F6 /* TalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B25BE561F68DC3A00C2E4F6 /* TalkCell.xib */; };
 		2B25BE5C1F68E31000C2E4F6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */; };
 		2B25BE5E1F68E58D00C2E4F6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE5D1F68E58D00C2E4F6 /* Protocols.swift */; };
+		2B2A01271F69C9DF002F39FB /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A01261F69C9DF002F39FB /* UITableViewExtensions.swift */; };
+		2B2A01291F69CACA002F39FB /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A01281F69CACA002F39FB /* NotificationCenterExtensions.swift */; };
+		2B2A012B1F69CB40002F39FB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A012A1F69CB40002F39FB /* Notifications.swift */; };
 		2BBD856F1F65D19C005B315D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD856E1F65D19C005B315D /* AppDelegate.swift */; };
 		2BBD85711F65D19C005B315D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD85701F65D19C005B315D /* LoginViewController.swift */; };
 		2BBD85741F65D19C005B315D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD85721F65D19C005B315D /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		2B25BE561F68DC3A00C2E4F6 /* TalkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkCell.xib; sourceTree = "<group>"; };
 		2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		2B25BE5D1F68E58D00C2E4F6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		2B2A01261F69C9DF002F39FB /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		2B2A01281F69CACA002F39FB /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
+		2B2A012A1F69CB40002F39FB /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2BBD856B1F65D19C005B315D /* pop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBD856E1F65D19C005B315D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BBD85701F65D19C005B315D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 			children = (
 				2B25BE4F1F68D21400C2E4F6 /* APIService.swift */,
 				2B25BE511F68D36C00C2E4F6 /* Talk.swift */,
+				2B2A012A1F69CB40002F39FB /* Notifications.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -82,7 +89,9 @@
 		2B25BE601F68E5E400C2E4F6 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2B2A01261F69C9DF002F39FB /* UITableViewExtensions.swift */,
 				2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */,
+				2B2A01281F69CACA002F39FB /* NotificationCenterExtensions.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -273,10 +282,13 @@
 			files = (
 				2BBD85711F65D19C005B315D /* LoginViewController.swift in Sources */,
 				2B25BE5C1F68E31000C2E4F6 /* UIColorExtensions.swift in Sources */,
+				2B2A012B1F69CB40002F39FB /* Notifications.swift in Sources */,
 				2B25BE541F68D78900C2E4F6 /* TalksViewController.swift in Sources */,
+				2B2A01271F69C9DF002F39FB /* UITableViewExtensions.swift in Sources */,
 				2B25BE521F68D36C00C2E4F6 /* Talk.swift in Sources */,
 				2B25BE571F68DC3A00C2E4F6 /* TalkCell.swift in Sources */,
 				2B25BE501F68D21400C2E4F6 /* APIService.swift in Sources */,
+				2B2A01291F69CACA002F39FB /* NotificationCenterExtensions.swift in Sources */,
 				2BBD856F1F65D19C005B315D /* AppDelegate.swift in Sources */,
 				2B25BE5E1F68E58D00C2E4F6 /* Protocols.swift in Sources */,
 			);

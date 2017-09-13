@@ -12,18 +12,25 @@ import UIKit
 // SHAKEABLE
 
 
-
 // REUSABLE && NIBLOADABLEVIEW
-
 
 
 // RESULT ENUM
 
 
-
 // NOTIFICATION CENTER
+protocol NotificationType {
+    
+    static var name: Notification.Name { get }
+    
+    var name: Notification.Name { get }
 
+    var userInfo: [AnyHashable: Any] { get }
+    
+    init?(notification: Notification?)
+}
 
+// BONUS
 protocol Alertable {
     func alert(title: String, message: String)
 }
