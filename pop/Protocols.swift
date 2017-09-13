@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // SHAKEABLE
 
@@ -23,3 +24,22 @@ import Foundation
 // NOTIFICATION CENTER
 
 
+protocol Alertable {
+    func alert(title: String, message: String)
+}
+
+extension Alertable where Self: UIViewController {
+    func alert(title: String, message: String){
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Ok",
+                                          style: .default,
+                                          handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

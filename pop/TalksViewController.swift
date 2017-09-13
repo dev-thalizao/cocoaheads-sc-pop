@@ -10,21 +10,31 @@ import UIKit
 
 let cellId = "TalkCell"
 
-class TalksViewController: UIViewController {
+class TalksViewController: UIViewController, Alertable {
 
     @IBOutlet weak var tableView: UITableView!
     var dataSource: [Talk] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBar()
+        self.setupObservers()
         self.setupTableView()
         self.getTalks()
     }
     
-    func setupNavigationBar(){
-        self.navigationController?.navigationBar.isHidden = false
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
+    
+    func setupObservers(){
+        NotificationCenter
+            .default
+            .addObserver(self,
+                         selector: #selector(self.speakerTapped(_:)),
+                         name: NSNotification.Name(rawValue: "SPEAKER_TAPPED"),
+                         object: nil)
+    }
+    
 
     func setupTableView(){
         let nib = UINib(nibName: "TalkCell", bundle: nil)
@@ -41,6 +51,16 @@ class TalksViewController: UIViewController {
             self.dataSource = talks
             self.tableView.reloadData()
         }
+    }
+    
+    func speakerTapped(_ notification: Notification){
+        print("notification reached \(notification)")
+        
+        guard let talk = notification.object as? Talk else {
+            return
+        }
+        
+        alert(title: talk.speaker, message: talk.name)
     }
 }
 
@@ -62,6 +82,11 @@ extension TalksViewController: UITableViewDataSource {
 extension TalksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let talk = dataSource[indexPath.row]
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPEAKER_TAPPED"),
+                                        object: talk,
+                                        userInfo: ["available": talk.available])
         
         print("Row selected")
     }
