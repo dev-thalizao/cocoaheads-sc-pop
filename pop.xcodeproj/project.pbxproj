@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B25BE501F68D21400C2E4F6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE4F1F68D21400C2E4F6 /* APIService.swift */; };
+		2B25BE521F68D36C00C2E4F6 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE511F68D36C00C2E4F6 /* Talk.swift */; };
+		2B25BE541F68D78900C2E4F6 /* TalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE531F68D78900C2E4F6 /* TalksViewController.swift */; };
+		2B25BE571F68DC3A00C2E4F6 /* TalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE551F68DC3A00C2E4F6 /* TalkCell.swift */; };
+		2B25BE581F68DC3A00C2E4F6 /* TalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B25BE561F68DC3A00C2E4F6 /* TalkCell.xib */; };
+		2B25BE5C1F68E31000C2E4F6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */; };
+		2B25BE5E1F68E58D00C2E4F6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25BE5D1F68E58D00C2E4F6 /* Protocols.swift */; };
 		2BBD856F1F65D19C005B315D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD856E1F65D19C005B315D /* AppDelegate.swift */; };
-		2BBD85711F65D19C005B315D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD85701F65D19C005B315D /* ViewController.swift */; };
+		2BBD85711F65D19C005B315D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD85701F65D19C005B315D /* LoginViewController.swift */; };
 		2BBD85741F65D19C005B315D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD85721F65D19C005B315D /* Main.storyboard */; };
 		2BBD85761F65D19C005B315D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD85751F65D19C005B315D /* Assets.xcassets */; };
 		2BBD85791F65D19C005B315D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD85771F65D19C005B315D /* LaunchScreen.storyboard */; };
@@ -26,9 +33,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B25BE4F1F68D21400C2E4F6 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		2B25BE511F68D36C00C2E4F6 /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
+		2B25BE531F68D78900C2E4F6 /* TalksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalksViewController.swift; sourceTree = "<group>"; };
+		2B25BE551F68DC3A00C2E4F6 /* TalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkCell.swift; sourceTree = "<group>"; };
+		2B25BE561F68DC3A00C2E4F6 /* TalkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkCell.xib; sourceTree = "<group>"; };
+		2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		2B25BE5D1F68E58D00C2E4F6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		2BBD856B1F65D19C005B315D /* pop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBD856E1F65D19C005B315D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BBD85701F65D19C005B315D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BBD85701F65D19C005B315D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BBD85731F65D19C005B315D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BBD85751F65D19C005B315D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BBD85781F65D19C005B315D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +70,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B25BE5F1F68E5D000C2E4F6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2B25BE4F1F68D21400C2E4F6 /* APIService.swift */,
+				2B25BE511F68D36C00C2E4F6 /* Talk.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		2B25BE601F68E5E400C2E4F6 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B25BE5B1F68E31000C2E4F6 /* UIColorExtensions.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		2B25BE611F68E60500C2E4F6 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2B25BE5D1F68E58D00C2E4F6 /* Protocols.swift */,
+			);
+			name = protocols;
+			sourceTree = "<group>";
+		};
+		2B25BE621F68E61700C2E4F6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2BBD85721F65D19C005B315D /* Main.storyboard */,
+				2BBD85701F65D19C005B315D /* LoginViewController.swift */,
+				2B25BE531F68D78900C2E4F6 /* TalksViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2B25BE631F68E63F00C2E4F6 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BBD857A1F65D19C005B315D /* Info.plist */,
+				2BBD85751F65D19C005B315D /* Assets.xcassets */,
+				2BBD85771F65D19C005B315D /* LaunchScreen.storyboard */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		2B25BE641F68E66B00C2E4F6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				2B25BE551F68DC3A00C2E4F6 /* TalkCell.swift */,
+				2B25BE561F68DC3A00C2E4F6 /* TalkCell.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		2BBD85621F65D19C005B315D = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +146,12 @@
 			isa = PBXGroup;
 			children = (
 				2BBD856E1F65D19C005B315D /* AppDelegate.swift */,
-				2BBD85701F65D19C005B315D /* ViewController.swift */,
-				2BBD85721F65D19C005B315D /* Main.storyboard */,
-				2BBD85751F65D19C005B315D /* Assets.xcassets */,
-				2BBD85771F65D19C005B315D /* LaunchScreen.storyboard */,
-				2BBD857A1F65D19C005B315D /* Info.plist */,
+				2B25BE621F68E61700C2E4F6 /* ViewController */,
+				2B25BE641F68E66B00C2E4F6 /* views */,
+				2B25BE611F68E60500C2E4F6 /* protocols */,
+				2B25BE601F68E5E400C2E4F6 /* extensions */,
+				2B25BE5F1F68E5D000C2E4F6 /* model */,
+				2B25BE631F68E63F00C2E4F6 /* resources */,
 			);
 			path = pop;
 			sourceTree = "<group>";
@@ -182,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BBD85791F65D19C005B315D /* LaunchScreen.storyboard in Resources */,
+				2B25BE581F68DC3A00C2E4F6 /* TalkCell.xib in Resources */,
 				2BBD85761F65D19C005B315D /* Assets.xcassets in Resources */,
 				2BBD85741F65D19C005B315D /* Main.storyboard in Resources */,
 			);
@@ -201,8 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BBD85711F65D19C005B315D /* ViewController.swift in Sources */,
+				2BBD85711F65D19C005B315D /* LoginViewController.swift in Sources */,
+				2B25BE5C1F68E31000C2E4F6 /* UIColorExtensions.swift in Sources */,
+				2B25BE541F68D78900C2E4F6 /* TalksViewController.swift in Sources */,
+				2B25BE521F68D36C00C2E4F6 /* Talk.swift in Sources */,
+				2B25BE571F68DC3A00C2E4F6 /* TalkCell.swift in Sources */,
+				2B25BE501F68D21400C2E4F6 /* APIService.swift in Sources */,
 				2BBD856F1F65D19C005B315D /* AppDelegate.swift in Sources */,
+				2B25BE5E1F68E58D00C2E4F6 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +490,7 @@
 				2BBD858A1F65D19C005B315D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BBD858B1F65D19C005B315D /* Build configuration list for PBXNativeTarget "popTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +499,7 @@
 				2BBD858D1F65D19C005B315D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
