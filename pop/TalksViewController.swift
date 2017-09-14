@@ -8,7 +8,7 @@
 
 import UIKit
 
-let cellId = "TalkCell"
+
 
 class TalksViewController: UIViewController, Alertable {
 
@@ -27,18 +27,23 @@ class TalksViewController: UIViewController, Alertable {
     }
     
     func setupObservers(){
+        
         NotificationCenter
             .default
-            .addObserver(self,
-                         selector: #selector(self.speakerTapped(_:)),
-                         name: NSNotification.Name(rawValue: "SPEAKER_TAPPED"),
-                         object: nil)
+            .addObserver(forType: Notifications.ShowSpeaker.self) { [weak self] (notification) in
+                guard let showSpeakerNotification = notification else {
+                    return
+                }
+                
+                self?.alert(title: showSpeakerNotification.talk.speaker,
+                            message: showSpeakerNotification.talk.name)
+        }
     }
     
 
     func setupTableView(){
-        let nib = UINib(nibName: "TalkCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellId)
+        tableView.register(TalkCell.self)
+        
         tableView.estimatedRowHeight = TalkCell.estimatedHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -47,20 +52,17 @@ class TalksViewController: UIViewController, Alertable {
     }
     
     func getTalks(){
-        APIService().getTalks { (talks) in
-            self.dataSource = talks
-            self.tableView.reloadData()
+        APIService().getTalks { (result) in
+            switch result {
+            case .success(let talks):
+                self.dataSource = talks
+                self.tableView.reloadData()
+                break
+            case .failure(let error):
+                print("Error :( \(error)")
+                break
+            }
         }
-    }
-    
-    func speakerTapped(_ notification: Notification){
-        print("notification reached \(notification)")
-        
-        guard let talk = notification.object as? Talk else {
-            return
-        }
-        
-        alert(title: talk.speaker, message: talk.name)
     }
 }
 
@@ -71,7 +73,9 @@ extension TalksViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! TalkCell
+        
+        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as TalkCell
+        
         let talk = dataSource[indexPath.row]
         cell.setup(talk: talk)
         
@@ -84,9 +88,9 @@ extension TalksViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let talk = dataSource[indexPath.row]
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPEAKER_TAPPED"),
-                                        object: talk,
-                                        userInfo: ["available": talk.available])
+        NotificationCenter
+            .default
+            .post(Notifications.ShowSpeaker(talk: talk))
         
         print("Row selected")
     }

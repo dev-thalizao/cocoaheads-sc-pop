@@ -18,7 +18,7 @@ struct APIService {
         }
     }
     
-    func getTalks(completion: ([Talk]) -> Void) {
-        completion([.xcodeBugs, .firebase, .venice, .pop, .architecture])
+    func getTalks(completion: (Result<[Talk]>) -> Void) {
+        completion(.success([.xcodeBugs, .firebase, .venice, .pop, .architecture]))
     }
 }

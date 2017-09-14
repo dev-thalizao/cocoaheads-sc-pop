@@ -10,12 +10,54 @@ import Foundation
 import UIKit
 
 // SHAKEABLE
+protocol Shakeable {
+    func shake()
+}
 
+extension Shakeable where Self: UIView {
+    func shake(){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.05
+        animation.repeatCount = 6
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 4.0, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 4.0, y: self.center.y))
+        self.layer.add(animation, forKey: "position")
+    }
+}
 
 // REUSABLE && NIBLOADABLEVIEW
+protocol Reusable {
+    static var reusableIdentifier: String { get }
+}
 
+extension Reusable where Self: UIView {
+    static var reusableIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+protocol NibLoadableView {
+    static var nibName: String { get }
+    static var nib: UINib { get }
+}
+
+extension NibLoadableView where Self: UIView {
+    static var nibName: String {
+        return String(describing: self)
+    }
+    
+    static var nib: UINib {
+        return UINib(nibName: nibName, bundle: nil)
+    }
+}
 
 // RESULT ENUM
+enum Result<T>{
+    case success(T)
+    case failure(Error)
+}
+
 
 
 // NOTIFICATION CENTER
