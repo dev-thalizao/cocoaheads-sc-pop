@@ -8,19 +8,9 @@
 
 import UIKit
 
-class LoginTextField: UITextField {}
+class LoginTextField: UITextField, Shakeable {}
 
-class SigninButton: UIButton {
-    func shake(){
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.05
-        animation.repeatCount = 5
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 4.0, y: self.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 4.0, y: self.center.y))
-        self.layer.add(animation, forKey: "position")
-    }
-}
+class SigninButton: UIButton, Shakeable {}
 
 class LoginViewController: UIViewController {
 
@@ -40,11 +30,16 @@ class LoginViewController: UIViewController {
             return
         }
         
-        APIService().login(username: username, password: password) { [weak self] (success) in
-            if success {
-                self?.performSegue(withIdentifier: "talkList", sender: self)
-            } else {
-                self?.signinButton.shake()
+        APIService().login(username: username, password: password) { [weak self] (outcome) in
+            guard let self = self else { return }
+            switch outcome {
+            case .success:
+                self.performSegue(withIdentifier: "talkList", sender: self)
+            case .failure(let error):
+                debugPrint(error)
+                self.usernameTextField.shake()
+                self.passwordTextField.shake()
+                self.signinButton.shake()
             }
         }
     }

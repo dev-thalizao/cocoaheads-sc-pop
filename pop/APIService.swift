@@ -8,13 +8,19 @@
 
 import Foundation
 
+enum APIServiceError: Error {
+    case failed
+}
+
 struct APIService {
     
-    func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
+    typealias Handler = (Outcome) -> Void
+    
+    func login(username: String, password: String, completion: @escaping Handler) {
         if username == "admin" && password == "admin" {
-            completion(true)
+            completion(.success)
         } else {
-            completion(false)
+            completion(.failure(APIServiceError.failed))
         }
     }
     

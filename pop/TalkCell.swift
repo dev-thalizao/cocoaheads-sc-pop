@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TalkCell: UITableViewCell {
+class TalkCell: UITableViewCell, Reusable, NibLoadableView {
 
     static let estimatedHeight: CGFloat = 64.0
     

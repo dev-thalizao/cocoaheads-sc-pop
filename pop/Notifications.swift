@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Notifications {
+enum Notifications {
     struct ShowSpeaker: NotificationType {
         
         var talk: Talk
